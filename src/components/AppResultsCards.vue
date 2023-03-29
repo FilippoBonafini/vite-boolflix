@@ -6,6 +6,8 @@ import AppCard from './AppCard.vue';
 // IMPORTIAMO LO STORE
 import { store } from '../store';
 
+
+
 export default {
     name: 'AppResultsCards',
     // DICHIARIAMO I COMPONENTI 
@@ -23,9 +25,11 @@ export default {
 <!-- HTML -->
 <template>
     <div>
-        <h1>results Card:</h1>
+        <h1>results films:</h1>
         <ul>
+            <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
             <li v-for="film in store.filmList">
+                <!-- PASSO LE PROPS AD OGNI CARD  -->
                 <AppCard :title="film.title" :originalTitle="film.original_title" :lenguage="film.original_language"
                     :valutation="film.vote_average" />
             </li>

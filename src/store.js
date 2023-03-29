@@ -6,9 +6,42 @@ export const store = reactive({
     apiFilm: 'https://api.themoviedb.org/3/search/movie',
     filmList: [],
 
-    apiTvSeries: '',
+    apiTvSeries: 'https://api.themoviedb.org/3/search/tv',
     tvSeriesList: [],
 
     searchKey: null,
-    language: 'it-IT'
+    language: 'it-IT',
+
+    langToCountry: {
+        en: 'us', // inglese
+        zh: 'cn', // cinese mandarino
+        es: 'es', // spagnolo
+        hi: 'in', // hindi
+        fr: 'fr', // francese
+        ru: 'ru', // russo
+        ar: 'sa', // arabo
+        pt: 'br', // portoghese
+        de: 'de', // tedesco
+        ja: 'jp', // giapponese
+        it: 'it', // italiano
+        ko: 'kr', // coreano
+        pl: 'pl', // polacco
+        tr: 'tr', // turco
+        nl: 'nl', // olandese
+        sv: 'se', // svedese
+        da: 'dk', // danese
+        no: 'no', // norvegese
+        fi: 'fi', // finlandese
+        el: 'gr', // greco
+        he: 'il', // ebraico
+        hu: 'hu', // ungherese
+        cs: 'cz', // ceco
+        id: 'id', // indonesiano
+        th: 'th', // thailandese
+        uk: 'ua', // ucraino
+        ro: 'ro', // rumeno
+        bg: 'bg', // bulgaro
+        fa: 'ir', // persiano
+    }
+
 })

@@ -24,7 +24,7 @@ export default {
 
   },
   methods: {
-    axiosCall(api, language, query) {
+    axiosCall(api, language, query, array) {
       axios.get(api, {
         params: {
           api_key: this.store.apiKey,
@@ -33,13 +33,18 @@ export default {
         }
       })
         .then((response) => {
-          console.log(response)
-          // -----------
-          // NON CAPISCO COME FARE PRENDERE IL PARAMETRO CHE DEVE
-          // ESSERE DEFINITO IN axiosCall 
-          // ---------
-          this.store.filmList = response.data.results
+          if (response.config.url === this.store.apiFilm) {
+            this.store.filmList = response.data.results
+            console.log(this.store.filmList)
+          } else {
+            this.store.tvSeriesList = response.data.results
+            console.log(this.store.tvSeriesList)
+          }
         })
+    },
+    generalCall() {
+      this.axiosCall(this.store.apiFilm, this.store.language, this.store.searchKey)
+      this.axiosCall(this.store.apiTvSeries, this.store.language, this.store.searchKey)
     }
   }
 }
@@ -48,7 +53,7 @@ export default {
 <!-- HTML -->
 <template>
   <div>
-    <AppHeader @search="axiosCall(this.store.apiFilm, this.store.language, this.store.searchKey)" />
+    <AppHeader @search="generalCall()" />
   </div>
   <div>
     <AppMain />
