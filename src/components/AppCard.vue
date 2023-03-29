@@ -35,9 +35,12 @@ export default {
         <ul>
             <li>{{ title }}</li>
             <li>{{ originalTitle }}</li>
+            <!-- MOSTRO IL LOGO SE E' PRESENTE NEL MIO ELENCO  -->
+            <!-- CHE SERVE A CONVERTIRE I CODICI  -->
             <li v-if="flagVerify">
                 <span :class="'fi fi-' + store.langToCountry[lenguage]"></span>
             </li>
+            <!-- ALTRIMENTI MOSTRO SCRITTO IL CODICE LINGUA -->
             <li v-else>{{ lenguage }}</li>
             <li>{{ valutation }}</li>
         </ul>
