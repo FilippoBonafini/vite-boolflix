@@ -35,8 +35,10 @@ export default {
         .then((response) => {
           if (response.config.url === this.store.apiFilm) {
             this.store.filmList = response.data.results
+            console.log('film')
             console.log(this.store.filmList)
           } else {
+            console.log('serie')
             this.store.tvSeriesList = response.data.results
             console.log(this.store.tvSeriesList)
           }

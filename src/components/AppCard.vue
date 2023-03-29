@@ -21,6 +21,7 @@ export default {
         // VERIFICO SE INSERIRE LA BANDIERA O MENO 
         flagVerify() {
             if (this.lenguage in this.store.langToCountry) {
+                console.log(this.lenguage in this.store.langToCountry)
                 return (true)
             }
         }
@@ -37,7 +38,7 @@ export default {
             <li>{{ originalTitle }}</li>
             <!-- MOSTRO IL LOGO SE E' PRESENTE NEL MIO ELENCO  -->
             <!-- CHE SERVE A CONVERTIRE I CODICI  -->
-            <li v-if="flagVerify">
+            <li v-if="flagVerify()">
                 <span :class="'fi fi-' + store.langToCountry[lenguage]"></span>
             </li>
             <!-- ALTRIMENTI MOSTRO SCRITTO IL CODICE LINGUA -->

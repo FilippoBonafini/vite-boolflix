@@ -34,6 +34,15 @@ export default {
                     :valutation="film.vote_average" />
             </li>
         </ul>
+        <h1>results series:</h1>
+        <ul>
+            <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DELLE SERIE  -->
+            <li v-for="series in store.tvSeriesList">
+                <!-- PASSO LE PROPS AD OGNI CARD  -->
+                <AppCard :title="series.name" :originalTitle="series.original_name" :lenguage="series.original_language"
+                    :valutation="series.vote_average" />
+            </li>
+        </ul>
     </div>
 </template>
 
