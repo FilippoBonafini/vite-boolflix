@@ -15,7 +15,8 @@ export default {
         title: String,
         originalTitle: String,
         lenguage: String,
-        valutation: Number
+        valutation: Number,
+        imagePath: String
     },
     methods: {
         // VERIFICO SE INSERIRE LA BANDIERA O MENO 
@@ -34,6 +35,9 @@ export default {
     <div>
         <!-- STRUTTURA DELLA CARD  -->
         <ul>
+            <li><img :src="this.store.linkImgSmall + this.imagePath" :alt="title"
+                    onerror="this.src='public/img/cover_not_avable.png'">
+            </li>
             <li>{{ title }}</li>
             <li>{{ originalTitle }}</li>
             <!-- MOSTRO IL LOGO SE E' PRESENTE NEL MIO ELENCO  -->

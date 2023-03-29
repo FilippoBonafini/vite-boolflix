@@ -12,6 +12,12 @@ export const store = reactive({
     searchKey: null,
     language: 'it-IT',
 
+    // BISOGNO AGGIUNGERE LA PARTE FINALE PER OTTENERE L'IMG 
+    linkImgSmall: 'http://image.tmdb.org/t/p/w400',
+    linkImgMed: 'http://image.tmdb.org/t/p/w700',
+    linkImgBig: 'http://image.tmdb.org/t/p/w1000',
+
+
     langToCountry: {
         en: 'us', // inglese
         zh: 'cn', // cinese mandarino

@@ -31,7 +31,7 @@ export default {
             <li v-for="film in store.filmList">
                 <!-- PASSO LE PROPS AD OGNI CARD  -->
                 <AppCard :title="film.title" :originalTitle="film.original_title" :lenguage="film.original_language"
-                    :valutation="film.vote_average" />
+                    :valutation="film.vote_average" :imagePath="film.backdrop_path" />
             </li>
         </ul>
         <h1>results series:</h1>
@@ -40,7 +40,7 @@ export default {
             <li v-for="series in store.tvSeriesList">
                 <!-- PASSO LE PROPS AD OGNI CARD  -->
                 <AppCard :title="series.name" :originalTitle="series.original_name" :lenguage="series.original_language"
-                    :valutation="series.vote_average" />
+                    :valutation="series.vote_average" :imagePath="series.backdrop_path" />
             </li>
         </ul>
     </div>
