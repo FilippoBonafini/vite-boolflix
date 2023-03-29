@@ -1,10 +1,13 @@
 <!-- JAVA SCRIPT  -->
 <script>
+// IMPORTIAMO LO STORE 
+import { store } from '../store';
 export default {
     name: 'AppHeader',
-    // DICHIARIAMO I COMPONENTI 
-    components: {
-
+    data() {
+        return {
+            store
+        }
     }
 }
 </script>
@@ -13,8 +16,8 @@ export default {
 <template>
     <div>
         <label for="search">Cerca</label>
-        <input type="text" id="search">
-        <button>Cerca</button>
+        <input type="text" id="search" v-model="this.store.searchKey">
+        <button @click="$emit('search')">Cerca</button>
     </div>
 </template>
 

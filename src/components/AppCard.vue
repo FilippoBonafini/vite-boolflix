@@ -1,10 +1,14 @@
 <!-- JAVA SCRIPT  -->
 <script>
+import { stringifyExpression } from '@vue/compiler-core';
+
 export default {
     name: 'AppCard',
-    // DICHIARIAMO I COMPONENTI 
-    components: {
-
+    props: {
+        title: String,
+        originalTitle: String,
+        lenguage: String,
+        valutation: Number
     }
 }
 </script>
@@ -12,7 +16,12 @@ export default {
 <!-- HTML -->
 <template>
     <div>
-        CARD
+        <ul>
+            <li>{{ title }}</li>
+            <li>{{ originalTitle }}</li>
+            <li>{{ lenguage }}</li>
+            <li>{{ valutation }}</li>
+        </ul>
     </div>
 </template>
 

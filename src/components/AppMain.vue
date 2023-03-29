@@ -19,9 +19,6 @@ export default {
     <div>
         <AppResultsCards />
     </div>
-    <div>
-        <AppRowCards />
-    </div>
 </template>
 
 <!-- CSS  -->
