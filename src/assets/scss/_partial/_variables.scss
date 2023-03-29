@@ -1,0 +1,13 @@
+// COLORS 
+$primary-color: #333;
+$secondary-color: #222;
+
+h1 {
+    color: $primary-color;
+    color: #333;
+}
+
+::root {
+    --primary-color: $primary-color;
+    --secondary-color: $secondary-color;
+}
