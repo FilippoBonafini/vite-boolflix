@@ -11,7 +11,11 @@ export default {
 
 <!-- HTML -->
 <template>
-    <div>SEARCH BAR</div>
+    <div>
+        <label for="search">Cerca</label>
+        <input type="text" id="search">
+        <button>Cerca</button>
+    </div>
 </template>
 
 <!-- CSS  -->
