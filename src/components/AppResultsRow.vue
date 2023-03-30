@@ -3,19 +3,12 @@
 // IMPORTIAMO I COMPONENTI 
 import AppCard from './AppCard.vue';
 
-// IMPORTIAMO LO STORE
-import { store } from '../store';
 
 export default {
     name: 'AppResultsCards',
     // DICHIARIAMO I COMPONENTI 
     components: {
         AppCard
-    },
-    data() {
-        return {
-            store
-        }
     },
     // DICHIARO QUALI SARANNO I DATI DI CUI HO BISOGNO 
     props: {

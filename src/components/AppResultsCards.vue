@@ -21,26 +21,6 @@ export default {
         return {
             store
         }
-    },
-    methods: {
-        // MOSTRO IN ORDINE DI POPOLARITA'
-        orderList(list) {
-            return list.sort((a, b) => {
-                if (a.popularity > b.popularity) return -1;
-                if (a.popularity < b.popularity) return 1;
-                return 0;
-            });
-        },
-    },
-    computed: {
-        // MOSTRO I FILM IN ORDINE DI POPOLARITA'
-        orderFilmList() {
-            return this.orderList(this.store.filmList)
-        },
-        // MOSTRO LE SERIE IN ORDINE DI POPOLARITA'
-        orderSeriesList() {
-            return this.orderList(this.store.tvSeriesList)
-        }
     }
 }
 </script>
