@@ -9,13 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/ubuntu": "^4.5.11",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "axios": "^1.3.4",
-    "flag-icons": "^6.6.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
