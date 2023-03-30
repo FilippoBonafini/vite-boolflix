@@ -53,8 +53,8 @@ export default {
 <!-- CSS  -->
 <style lang="scss">
 .card {
-    max-width: 20rem;
-    height: 40rem;
+    background-color: white;
+    padding: 10px;
     margin-bottom: 1.25rem;
 
     img {

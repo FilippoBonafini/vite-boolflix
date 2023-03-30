@@ -50,6 +50,7 @@ export default {
 section {
     max-width: 90vw;
     margin: auto;
+    background-color: red;
 
     h2 {
         font-size: 60px;
@@ -59,10 +60,9 @@ section {
     ul.list {
         display: flex;
         flex-wrap: wrap;
-        width: auto;
 
         li {
-            margin: 0 auto;
+            flex-basis: calc(100% / 4);
         }
     }
 }

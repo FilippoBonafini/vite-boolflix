@@ -32,17 +32,9 @@ export default {
         }
       })
         .then((response) => {
-          if (response.config.url === 'https://api.themoviedb.org/3/search/movie') {
-            this.store.categories[0].list = response.data.results
-            console.log('film:')
-            console.log(response)
-          } else {
-            this.store.categories[1].list = response.data.results
-            console.log('serie:')
-            console.log(response)
-          }
+          const categoriesIndex = this.store.categories.findIndex((element) => element.api === response.config.url);
+          this.store.categories[categoriesIndex].list = response.data.results
         })
-
     },
     generalCall() {
       this.store.categories.forEach(element => {
