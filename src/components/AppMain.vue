@@ -3,6 +3,7 @@
 // IMPORTIAMO I COMPONENTI 
 import AppResultsCards from './AppResultsCards.vue';
 
+
 export default {
     name: 'AppMain',
     // DICHIARIAMO I COMPONENTI 
@@ -21,3 +22,4 @@ export default {
 
 <!-- CSS  -->
 <style lang="scss"></style>
+

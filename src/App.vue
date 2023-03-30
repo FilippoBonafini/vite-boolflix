@@ -32,17 +32,22 @@ export default {
         }
       })
         .then((response) => {
-          if (response.config.url === this.store.apiFilm) {
-            this.store.filmList = response.data.results
+          if (response.config.url === 'https://api.themoviedb.org/3/search/movie') {
+            this.store.categories[0].list = response.data.results
+            console.log('film:')
+            console.log(response)
           } else {
-            this.store.tvSeriesList = response.data.results
+            this.store.categories[1].list = response.data.results
+            console.log('serie:')
+            console.log(response)
           }
         })
 
     },
     generalCall() {
-      this.axiosCall(this.store.apiFilm)
-      this.axiosCall(this.store.apiTvSeries)
+      this.store.categories.forEach(element => {
+        this.axiosCall(element.api)
+      });
     }
   }
 }
