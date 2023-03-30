@@ -19,13 +19,9 @@ export default {
         imagePath: String
     },
     methods: {
-        // VERIFICO SE INSERIRE LA BANDIERA O MENO 
-        flagVerify() {
-            if (this.lenguage in this.store.langToCountry) { return (true) }
-        },
         // VERIFICO QUANTE STELLE INSERIRE 
         stars(valutation) {
-            return (Array.from({ length: valutation }))
+            return (Number((valutation / 2).toFixed()))
         }
     }
 }
@@ -43,12 +39,13 @@ export default {
             <li>{{ originalTitle }}</li>
             <!-- MOSTRO IL LOGO SE E' PRESENTE NEL MIO ELENCO  -->
             <!-- CHE SERVE A CONVERTIRE I CODICI  -->
-            <li v-if="flagVerify()">
-                <span :class="'fi fi-' + store.langToCountry[lenguage]"></span>
+            <li>
+                <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
             </li>
-            <!-- ALTRIMENTI MOSTRO SCRITTO IL CODICE LINGUA -->
-            <li v-else>{{ lenguage }}</li>
-            <li><span v-for="star in stars(valutation)">+</span></li>
+            <li>
+                <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
+                <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
+            </li>
         </ul>
     </div>
 </template>
