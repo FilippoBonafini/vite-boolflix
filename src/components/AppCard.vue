@@ -63,7 +63,6 @@ export default {
 <!-- CSS  -->
 <style lang="scss">
 .card {
-    background-color: green;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

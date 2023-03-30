@@ -11,8 +11,6 @@ export const store = reactive({
     searchKey: null,
     language: 'it-IT',
 
-    loadStatus: true,
-    resultsStatus: true,
 
     categories: [
 

@@ -66,7 +66,7 @@ export default {
     <AppHeader @search="generalCall()" />
   </div>
   <div>
-    <AppMain :loadStatus="store.loadStatus" :resultsStatus="store.resultsStatus" />
+    <AppMain />
   </div>
 </template>
 
