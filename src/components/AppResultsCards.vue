@@ -6,8 +6,6 @@ import AppCard from './AppCard.vue';
 // IMPORTIAMO LO STORE
 import { store } from '../store';
 
-
-
 export default {
     name: 'AppResultsCards',
     // DICHIARIAMO I COMPONENTI 

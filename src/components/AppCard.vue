@@ -21,10 +21,11 @@ export default {
     methods: {
         // VERIFICO SE INSERIRE LA BANDIERA O MENO 
         flagVerify() {
-            if (this.lenguage in this.store.langToCountry) {
-                console.log(this.lenguage in this.store.langToCountry)
-                return (true)
-            }
+            if (this.lenguage in this.store.langToCountry) { return (true) }
+        },
+        // VERIFICO QUANTE STELLE INSERIRE 
+        stars(valutation) {
+            return (Array.from({ length: valutation }))
         }
     }
 }
@@ -47,7 +48,7 @@ export default {
             </li>
             <!-- ALTRIMENTI MOSTRO SCRITTO IL CODICE LINGUA -->
             <li v-else>{{ lenguage }}</li>
-            <li>{{ valutation }}</li>
+            <li><span v-for="star in stars(valutation)">+</span></li>
         </ul>
     </div>
 </template>

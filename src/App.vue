@@ -21,32 +21,28 @@ export default {
     return {
       store
     }
-
   },
   methods: {
-    axiosCall(api, language, query, array) {
+    axiosCall(api) {
       axios.get(api, {
         params: {
           api_key: this.store.apiKey,
-          query: query,
-          language: language
+          query: this.store.searchKey,
+          language: this.store.language
         }
       })
         .then((response) => {
           if (response.config.url === this.store.apiFilm) {
             this.store.filmList = response.data.results
-            console.log('film')
-            console.log(this.store.filmList)
           } else {
-            console.log('serie')
             this.store.tvSeriesList = response.data.results
-            console.log(this.store.tvSeriesList)
           }
         })
+
     },
     generalCall() {
-      this.axiosCall(this.store.apiFilm, this.store.language, this.store.searchKey)
-      this.axiosCall(this.store.apiTvSeries, this.store.language, this.store.searchKey)
+      this.axiosCall(this.store.apiFilm)
+      this.axiosCall(this.store.apiTvSeries)
     }
   }
 }
