@@ -1,2 +1,37 @@
 @use './_partial/reset' as *;
 @use './_partial/variables' as *;
+
+// IMPORT FONT 
+@use "@fontsource/ubuntu";
+
+body {
+    font-family: "Ubuntu";
+}
+
+*::-webkit-scrollbar,
+#boxContacts .userList::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track,
+#boxContacts .userList::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(255, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb,
+#boxContacts .userList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-thumb:hover,
+#boxContacts .userList::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+*::-webkit-scrollbar-thumb:active,
+#boxContacts .userList::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.5);
+}

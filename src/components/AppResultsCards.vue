@@ -1,20 +1,14 @@
 <!-- JAVA SCRIPT  -->
 <script>
-// IMPORTIAMO I COMPONENTI 
-import AppCard from './AppCard.vue';
-
 // IMPORTIAMO LO STORE
 import { store } from '../store';
-
-
-
+// IMPORTO I COMPONENTI
 import AppResultsRow from './AppResultsRow.vue';
 
 export default {
     name: 'AppResultsCards',
     // DICHIARIAMO I COMPONENTI 
     components: {
-        AppCard,
         AppResultsRow
     },
     data() {

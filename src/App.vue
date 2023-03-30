@@ -34,12 +34,26 @@ export default {
         .then((response) => {
           const categoriesIndex = this.store.categories.findIndex((element) => element.api === response.config.url);
           this.store.categories[categoriesIndex].list = response.data.results
+          // SE LO SCROL DELLA PAGINA E' AL TOP 
+          if (window.scrollY === 0) {
+            // SCROLLA
+            this.scroll()
+          }
         })
     },
+
+    // FAI CHIAMATE PER QUANTE CE NE SONO NELL'ARRAY
     generalCall() {
       this.store.categories.forEach(element => {
         this.axiosCall(element.api)
       });
+
+    },
+
+    // SCROLLA LA PAGINA DELLA SUA ALTEZZA 
+    scroll() {
+      console.log(window.scrollY)
+      window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
     }
   }
 }

@@ -31,7 +31,7 @@ export default {
 
 <!-- HTML -->
 <template>
-    <section>
+    <section v-if="list.length != 0">
         <h2>{{ titleList }}</h2>
         <ul class="list">
             <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
@@ -50,11 +50,11 @@ export default {
 section {
     max-width: 90vw;
     margin: auto;
-    background-color: red;
+
 
     h2 {
-        font-size: 60px;
-        padding-bottom: 10px;
+        font-size: 80px;
+        padding: 20px;
     }
 
     ul.list {
@@ -62,7 +62,7 @@ section {
         flex-wrap: wrap;
 
         li {
-            flex-basis: calc(100% / 4);
+            margin: 20px auto;
         }
     }
 }

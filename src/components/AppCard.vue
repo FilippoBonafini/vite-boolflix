@@ -35,17 +35,17 @@ export default {
             <img class="coverImg alternative" v-if="imagePath === null" src="public/img/cover_not_avable.png" :alt="title">
             <img class="coverImg" v-else :src="store.linkImgSmall + imagePath" :alt="title">
         </div>
-        <div class="info">
-            <div>{{ title }}</div>
-            <div>{{ originalTitle }}</div>
-            <div class="lang">
-                <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
-            </div>
-            <div>
-                <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
-                <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
-            </div>
-        </div>
+        <!-- <div class="info">
+                <div>{{ title }}</div>
+                <div>{{ originalTitle }}</div>
+                <div class="lang">
+                    <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
+                </div>
+                <div>
+                    <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
+                    <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
+                </div>
+            </div> -->
 
     </div>
 </template>
@@ -53,9 +53,12 @@ export default {
 <!-- CSS  -->
 <style lang="scss">
 .card {
-    background-color: white;
-    padding: 10px;
-    margin-bottom: 1.25rem;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 400px;
 
     img {
         height: 100%;
@@ -63,15 +66,20 @@ export default {
         object-fit: cover;
     }
 
-    .cover {
-        height: 31.25rem;
+    .cover .coverImg {
+        height: 600px;
     }
 
     .info {
-        .lang {
-            height: 40px;
-            width: 40px;
-        }
+        flex-grow: 1;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+
+        // .lang {
+        //     height: 40px;
+        //     width: 40px;
+        // }
     }
 
 }
