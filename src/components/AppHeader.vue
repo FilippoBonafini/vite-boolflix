@@ -14,11 +14,11 @@ export default {
 
 <!-- HTML -->
 <template>
-    <div>
+    <header>
         <label for="search">Cerca</label>
         <input type="text" id="search" v-model="this.store.searchKey">
         <button @click="$emit('search')">Cerca</button>
-    </div>
+    </header>
 </template>
 
 <!-- CSS  -->

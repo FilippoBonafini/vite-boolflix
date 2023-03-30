@@ -31,9 +31,9 @@ export default {
 
 <!-- HTML -->
 <template>
-    <div>
-        <h1>{{ titleList }}</h1>
-        <ul>
+    <section>
+        <h2>{{ titleList }}</h2>
+        <ul class="list">
             <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
             <li v-for="element in orderList">
                 <!-- PASSO LE PROPS AD OGNI CARD  -->
@@ -42,8 +42,28 @@ export default {
                     :imagePath="element[reference.posterUrl]" />
             </li>
         </ul>
-    </div>
+    </section>
 </template>
 
 <!-- CSS  -->
-<style lang="scss"></style>
+<style lang="scss">
+section {
+    max-width: 90vw;
+    margin: auto;
+
+    h2 {
+        font-size: 60px;
+        padding-bottom: 10px;
+    }
+
+    ul.list {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+
+        li {
+            margin: 0 auto;
+        }
+    }
+}
+</style>

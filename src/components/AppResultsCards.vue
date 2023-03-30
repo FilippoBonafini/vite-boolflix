@@ -27,9 +27,8 @@ export default {
 
 <!-- HTML -->
 <template>
-    <div v-for="category in store.categories">
-        <AppResultsRow :titleList="category.categoryName" :reference="category.reference" :list="category.list" />
-    </div>
+    <AppResultsRow v-for="category in store.categories" :titleList="category.categoryName" :reference="category.reference"
+        :list="category.list" />
 </template>
 
 <!-- CSS  -->

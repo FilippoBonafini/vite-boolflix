@@ -15,9 +15,9 @@ export default {
 
 <!-- HTML -->
 <template>
-    <div>
+    <main>
         <AppResultsCards />
-    </div>
+    </main>
 </template>
 
 <!-- CSS  -->
