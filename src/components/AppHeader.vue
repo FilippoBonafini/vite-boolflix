@@ -65,10 +65,11 @@ header {
         }
 
         button {
-            height: 60px;
-            width: 60px;
+            height: 50px;
+            width: 50px;
             position: absolute;
-            right: 30px;
+            right: 35px;
+            top: 5px;
             border-radius: 50%;
             border: none;
             cursor: pointer;

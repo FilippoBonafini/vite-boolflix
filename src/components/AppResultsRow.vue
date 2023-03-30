@@ -37,9 +37,9 @@ export default {
             <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
             <li v-for="element in orderList">
                 <!-- PASSO LE PROPS AD OGNI CARD  -->
-                <AppCard :title="element[reference.title]" :originalTitle="element[reference.originalTitle]"
-                    :lenguage="element[reference.language]" :valutation="element[reference.vote]"
-                    :imagePath="element[reference.posterUrl]" />
+                <AppCard :title="element[reference.title]" :lenguage="element[reference.language]"
+                    :valutation="element[reference.vote]" :imagePath="element[reference.posterUrl]"
+                    :coverPath="element[reference.coverUrl]" :description="element[reference.description]" />
             </li>
         </ul>
     </section>

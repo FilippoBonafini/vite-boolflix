@@ -10,6 +10,7 @@ import { store } from './store';
 // IMPORTIAMO AXIOS 
 import axios from 'axios'
 
+
 export default {
   name: 'App',
   // DICHIARIAMO I COMPONENTI 
@@ -34,11 +35,11 @@ export default {
         .then((response) => {
           const categoriesIndex = this.store.categories.findIndex((element) => element.api === response.config.url);
           this.store.categories[categoriesIndex].list = response.data.results
-          // SE LO SCROL DELLA PAGINA E' AL TOP 
-          if (window.scrollY === 0) {
-            // SCROLLA
-            this.scroll()
-          }
+          // SCROLLO LA PAGINA 
+          this.scroll()
+        })
+        .catch((error) => {
+          console.log(error)
         })
     },
 
@@ -47,13 +48,13 @@ export default {
       this.store.categories.forEach(element => {
         this.axiosCall(element.api)
       });
-
     },
 
     // SCROLLA LA PAGINA DELLA SUA ALTEZZA 
     scroll() {
-      console.log(window.scrollY)
-      window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+      if (window.scrollY === 0) {
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+      }
     }
   }
 }
@@ -65,7 +66,7 @@ export default {
     <AppHeader @search="generalCall()" />
   </div>
   <div>
-    <AppMain />
+    <AppMain :loadStatus="store.loadStatus" :resultsStatus="store.resultsStatus" />
   </div>
 </template>
 
