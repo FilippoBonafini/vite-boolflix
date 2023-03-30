@@ -59,6 +59,7 @@ export default {
 
     img {
         height: 100%;
+        width: 100%;
         object-fit: cover;
     }
 
@@ -69,6 +70,7 @@ export default {
     .info {
         .lang {
             height: 40px;
+            width: 40px;
         }
     }
 
