@@ -32,13 +32,12 @@ export default {
     <div>
         <!-- STRUTTURA DELLA CARD  -->
         <ul>
-            <li><img :src="this.store.linkImgSmall + this.imagePath" :alt="title"
-                    onerror="this.src='public/img/cover_not_avable.png'">
+            <li>
+                <img v-if="imagePath === null" src="public/img/cover_not_avable.png" :alt="title">
+                <img v-else :src="store.linkImgSmall + imagePath" :alt="title">
             </li>
             <li>{{ title }}</li>
             <li>{{ originalTitle }}</li>
-            <!-- MOSTRO IL LOGO SE E' PRESENTE NEL MIO ELENCO  -->
-            <!-- CHE SERVE A CONVERTIRE I CODICI  -->
             <li>
                 <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
             </li>
