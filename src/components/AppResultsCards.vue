@@ -21,10 +21,14 @@ export default {
 
 <!-- HTML -->
 <template>
-    <AppResultsRow v-for="category in store.categories" :titleList="category.categoryName" :reference="category.reference"
-        :list="category.list" />
+    <AppResultsRow class="Resultrow" v-for="category in store.categories" :titleList="category.categoryName"
+        :reference="category.reference" :list="category.list" />
 </template>
 
 <!-- CSS  -->
-<style lang="scss"></style>
+<style lang="scss">
+.Resultrow {
+    padding-bottom: 30px;
+}
+</style>
 
