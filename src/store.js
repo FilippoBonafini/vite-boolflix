@@ -11,6 +11,7 @@ export const store = reactive({
     searchKey: null,
     language: 'it-IT',
 
+    promises: [],
 
     categories: [
 
@@ -18,6 +19,7 @@ export const store = reactive({
             categoryName: 'Film',
             api: 'https://api.themoviedb.org/3/search/movie',
             list: [],
+            loading: false,
             reference: {
                 title: 'title',
                 language: 'original_language',
@@ -37,6 +39,7 @@ export const store = reactive({
             categoryName: 'Tv Series',
             api: 'https://api.themoviedb.org/3/search/tv',
             list: [],
+            loading: false,
             reference: {
                 title: 'name',
                 originalTitle: 'original_name',

@@ -35,46 +35,39 @@ export default {
         .then((response) => {
           const categoriesIndex = this.store.categories.findIndex((element) => element.api === response.config.url);
           this.store.categories[categoriesIndex].list = response.data.results
-          // SCROLLO LA PAGINA 
-          this.scroll()
         })
         .catch((error) => {
           console.log(error)
         })
     },
 
-    // FAI CHIAMATE PER QUANTE CE NE SONO NELL'ARRAY
     generalCall() {
-      this.store.categories.forEach(element => {
-        this.axiosCall(element.api)
+      const promisesList = this.store.categories.map(element => {
+        return this.axiosCall(element.api)
+      });
+      Promise.all(promisesList).then(() => {
+        console.log('dom aggiornato')
+        this.scroll()
       });
     },
 
     // SCROLLA LA PAGINA DELLA SUA ALTEZZA 
     scroll() {
+
       if (window.scrollY === 0) {
-        window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+        console.log('scrol')
+        window.scrollBy({ top: window.innerHeight - 50, behavior: "smooth" })
         // this.$refs.main.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  },
-  updated() {
-    this.$nextTick(() => {
-      console.log('ciao')
-      this.scroll()
-    });
   }
 }
 </script>
 
 <!-- HTML -->
 <template>
-  <div>
-    <AppHeader @search="generalCall()" />
-  </div>
-  <div ref="main">
-    <AppMain />
-  </div>
+  <AppHeader @search="generalCall()" />
+  <AppMain ref="main" />
 </template>
 
 <!-- CSS  -->

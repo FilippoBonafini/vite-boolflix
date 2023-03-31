@@ -18,7 +18,10 @@ export default {
     },
     methods: {
         handleScroll() {
-            this.isSmall = window.scrollY > window.innerHeight - 400
+            this.isSmall = window.scrollY > window.innerHeight - 300
+        },
+        start() {
+            this.$emit('search')
         }
     }
 }
@@ -37,7 +40,7 @@ export default {
         <form action="#">
             <label for="search">Cerca</label>
             <input type="text" id="search" v-model="this.store.searchKey" placeholder="Search a movie">
-            <button @click.prevent="$emit('search')">
+            <button @click.prevent="start">
                 <font-awesome-icon icon="fa-solid fa-search" />
             </button>
         </form>
@@ -47,6 +50,7 @@ export default {
 <!-- CSS  -->
 <style lang="scss">
 @use '../assets/scss/_partial/_variables.scss' as *;
+
 
 .searchbar {
     background-color: $my-dark;
@@ -59,6 +63,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+    box-shadow: 0px 0px 30px 5px #000000;
 
     .title {
         flex-grow: 6;
@@ -153,7 +158,7 @@ export default {
 
             .oolflix {
                 font-size: 90px;
-                transition-duration: 1s;
+                transition-duration: 0.2;
             }
         }
 
@@ -164,10 +169,10 @@ export default {
 
 }
 
+
+
+
 .searchbar.searchbar--small {
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 999;
     height: 100px;
     display: flex;

@@ -72,6 +72,7 @@ export default {
     max-width: 400px;
     position: relative;
 
+
     img {
         height: 100%;
         width: 100%;
@@ -96,6 +97,7 @@ export default {
         transition-delay: 0.36s;
         display: flex;
         flex-direction: column;
+        z-index: 2;
 
         .coverImg {
             border-radius: 30px 30px 0 0;
@@ -168,7 +170,6 @@ export default {
     }
 
     &:hover .info {
-        z-index: 3;
         opacity: 1;
         transform: scale(1.1);
         scale: 1.05;
