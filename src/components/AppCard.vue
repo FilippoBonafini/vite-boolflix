@@ -18,13 +18,15 @@ export default {
         valutation: Number,
         imagePath: String,
         coverPath: String,
-        description: String
+        description: String,
+        menuStatus: Boolean
     },
     methods: {
         // VERIFICO QUANTE STELLE INSERIRE 
         stars(valutation) {
             return (Number((valutation / 2).toFixed()))
         }
+
     }
 }
 </script>
@@ -68,8 +70,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    max-width: 400px;
     position: relative;
 
 
@@ -171,6 +171,9 @@ export default {
 
     &:hover .info {
         opacity: 1;
+        margin-right: 10px;
+        margin-left: -10px;
+        transform-origin: center left;
         transform: scale(1.1);
         scale: 1.05;
         box-shadow: 0px 0px 12px 0px #000000;

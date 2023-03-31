@@ -38,6 +38,7 @@ export default {
 
     .Resultrow {
         padding-bottom: 30px;
+        margin-bottom: 30px;
     }
 }
 </style>

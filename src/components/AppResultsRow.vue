@@ -6,6 +6,11 @@ import AppCard from './AppCard.vue';
 
 export default {
     name: 'AppResultsCards',
+    data() {
+        return {
+            openMenu: false
+        }
+    },
     // DICHIARIAMO I COMPONENTI 
     components: {
         AppCard
@@ -16,6 +21,12 @@ export default {
         reference: Object,
         list: Array
     },
+    methods: {
+        triggerMenu() {
+            console.log(this.openMenu)
+            this.openMenu = !this.openMenu
+        }
+    },
     computed: {
         // MOSTRO IN ORDINE DI POPOLARITA'
         orderList() {
@@ -24,15 +35,15 @@ export default {
                 if (a.popularity < b.popularity) return 1;
                 return 0;
             });
-        },
+        }
     }
 }
 </script>
 
 <!-- HTML -->
 <template>
-    <section v-if="list.length != 0">
-        <h2>{{ titleList }}</h2>
+    <section v-if="list.length != 0" :class="{ 'open': openMenu }">
+        <h2 @click="triggerMenu">{{ titleList }}</h2>
         <ul class="list">
             <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
             <li v-for="element in orderList">
@@ -56,21 +67,53 @@ section {
     margin: 0 auto;
     margin-bottom: 50px;
     border-radius: 20px;
+    position: relative;
+    overflow-x: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 100%;
+        background: rgb(51, 63, 68);
+        background: linear-gradient(90deg, rgba(51, 63, 68, 0) 10%, rgba(51, 63, 68, 1) 68%);
+        right: 0;
+        top: 0;
+    }
 
 
     h2 {
         color: $my-darken-azure;
         font-size: 80px;
-        padding: 20px;
+        padding: 45px;
     }
 
     ul.list {
         display: flex;
-        flex-wrap: wrap;
+        gap: 5px;
+        margin: 0 10px;
 
         li {
-            margin: 20px auto;
+            margin: auto;
+            padding-bottom: 20px;
+            flex-basis: 25%;
+            min-width: 400px;
+            max-width: 400px;
         }
+    }
+
+}
+
+section.open {
+    overflow-x: auto;
+
+    ul.list {
+        flex-wrap: wrap;
+    }
+
+    &::after {
+        width: 0;
+        height: 0;
     }
 }
 </style>
