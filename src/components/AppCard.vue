@@ -175,9 +175,11 @@ export default {
         opacity: 1;
         margin-right: 10px;
         margin-left: -10px;
-        transform-origin: center left;
+        margin-top: 10px;
+        margin-bottom: -10px;
+        transform-origin: bottom left;
         transform: scale(1.1);
-        scale: 1.05;
+
         box-shadow: 0px 0px 12px 0px #000000;
     }
 

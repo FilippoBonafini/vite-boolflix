@@ -80,7 +80,7 @@ section {
     margin-bottom: 50px;
     border-radius: 20px;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 
     &::after {
         content: '';
