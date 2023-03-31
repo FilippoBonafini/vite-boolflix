@@ -71,12 +71,14 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    border-radius: 10px;
 
 
     img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        border-radius: 10px;
     }
 
     .cover .coverImg {
