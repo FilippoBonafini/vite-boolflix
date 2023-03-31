@@ -20,15 +20,18 @@ export const store = reactive({
             list: [],
             reference: {
                 title: 'title',
-                originalTitle: 'original_title',
                 language: 'original_language',
-                popularity: 'popularity',
                 description: 'overview',
                 vote: 'vote_average',
-                data: 'release_date',
                 coverUrl: 'backdrop_path',
                 posterUrl: 'poster_path'
+            },
+            moreReference: {
+                originalTitle: 'original_title',
+                popularity: 'popularity',
+                data: 'release_date',
             }
+
         },
         {
             categoryName: 'Tv Series',
@@ -44,6 +47,11 @@ export const store = reactive({
                 data: 'release_date',
                 coverUrl: 'backdrop_path',
                 posterUrl: 'poster_path'
+            },
+            moreReference: {
+                originalTitle: 'original_name',
+                popularity: 'popularity',
+                data: 'release_date',
             }
         }
 

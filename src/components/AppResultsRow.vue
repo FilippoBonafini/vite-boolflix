@@ -47,12 +47,19 @@ export default {
 
 <!-- CSS  -->
 <style lang="scss">
+@use '../assets/scss/_partial/_variables.scss' as *;
+
 section {
+    box-shadow: 0px 0px 15px 1px #000000;
+    background-color: $my-grey;
     max-width: 90vw;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-radius: 20px;
 
 
     h2 {
+        color: $my-darken-azure;
         font-size: 80px;
         padding: 20px;
     }

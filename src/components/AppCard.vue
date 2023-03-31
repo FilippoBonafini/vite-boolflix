@@ -62,6 +62,8 @@ export default {
 
 <!-- CSS  -->
 <style lang="scss">
+@use '../assets/scss/_partial/_variables.scss' as *;
+
 .card {
     display: flex;
     flex-direction: column;
@@ -86,11 +88,11 @@ export default {
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: rgb(0, 0, 0);
+        background-color: black;
         color: white;
         border-radius: 30px;
         opacity: 0;
-        transition: opacity 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         transition-delay: 0.36s;
         display: flex;
         flex-direction: column;
@@ -109,7 +111,7 @@ export default {
                 position: absolute;
                 width: 100%;
                 height: 50px;
-                background: rgb(0, 0, 0);
+                background: black;
                 background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 100%);
                 right: 0;
                 top: -50px;

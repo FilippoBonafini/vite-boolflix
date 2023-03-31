@@ -21,5 +21,11 @@ export default {
 </template>
 
 <!-- CSS  -->
-<style lang="scss"></style>
+<style lang="scss">
+@use '../assets/scss/_partial/_variables.scss' as *;
+
+main {
+    background-color: $my-dark;
+}
+</style>
 

@@ -54,8 +54,15 @@ export default {
     scroll() {
       if (window.scrollY === 0) {
         window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
+        // this.$refs.main.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  },
+  updated() {
+    this.$nextTick(() => {
+      console.log('ciao')
+      this.scroll()
+    });
   }
 }
 </script>
@@ -65,7 +72,7 @@ export default {
   <div>
     <AppHeader @search="generalCall()" />
   </div>
-  <div>
+  <div ref="main">
     <AppMain />
   </div>
 </template>
