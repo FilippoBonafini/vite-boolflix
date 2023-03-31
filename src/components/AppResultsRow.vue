@@ -42,8 +42,19 @@ export default {
 
 <!-- HTML -->
 <template>
+    <!-- <section class="loadingSection open">
+            <div class="title loadCard">
+                <div class="shimmerBG title-line"></div>
+            </div>
+
+            <ul class="list">
+                <li class="loadCard" v-for="element in 4">
+                    <div class="shimmerBG media"></div>
+                </li>
+            </ul>
+        </section> -->
     <section v-if="list.length != 0" :class="{ 'open': openMenu }">
-        <h2 @click="triggerMenu">{{ titleList }} <font-awesome-icon icon="fa-solid fa-angle-down" />
+        <h2 class="title" @click="triggerMenu">{{ titleList }} <font-awesome-icon icon="fa-solid fa-angle-down" />
         </h2>
         <ul class="list">
             <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
@@ -52,17 +63,6 @@ export default {
                 <AppCard :title="element[reference.title]" :lenguage="element[reference.language]"
                     :valutation="element[reference.vote]" :imagePath="element[reference.posterUrl]"
                     :coverPath="element[reference.coverUrl]" :description="element[reference.description]" />
-            </li>
-        </ul>
-    </section>
-    <section class="loadingSection open">
-        <h2 class="loadCard">
-            <div class="shimmerBG title-line"></div>
-        </h2>
-
-        <ul class="list">
-            <li class="loadCard" v-for="element in 4">
-                <div class="shimmerBG media"></div>
             </li>
         </ul>
     </section>
@@ -94,23 +94,24 @@ section {
     }
 
 
-    h2 {
+    .title {
         color: $my-darken-azure;
         font-size: 80px;
         padding: 45px;
         display: flex;
         align-items: flex-end;
         gap: 30px;
+        display: inline-block;
 
         .fa-angle-down {
             transform: translateY(10px);
             transition: transform 0.2s;
         }
+    }
 
-        &:hover {
-            cursor: pointer;
-            color: white;
-        }
+    h2:hover {
+        cursor: pointer;
+        color: white;
     }
 
     ul.list {
@@ -156,6 +157,7 @@ section.open {
     border-radius: 6px;
     overflow: hidden;
     width: 400px;
+    cursor: wait;
 
     .shimmerBG {
         border-radius: 10px;
@@ -194,10 +196,11 @@ section.open {
     }
 
     .title-line {
-        height: 44px;
+        height: 92px;
         width: 100%;
         transform: translateY(20px);
         border-radius: 20px;
+
     }
 }
 </style>
