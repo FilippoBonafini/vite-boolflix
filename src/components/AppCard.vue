@@ -48,12 +48,15 @@ export default {
             <p class="text">{{ description }}</p>
 
             <div class="footer">
-                <div class="lang">
+                <!-- <div class="lang">
                     <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
-                </div>
+                </div> -->
                 <div class="vote">
                     <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
                     <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
+                </div>
+                <div class="button-more">
+                    <font-awesome-icon icon="fa-solid fa-angle-right" />
                 </div>
             </div>
 
@@ -147,6 +150,22 @@ export default {
             align-items: center;
             padding: 30px;
             position: relative;
+
+            .button-more {
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                animation-duration: 1s;
+                background-color: #37AA9C;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
 
             &::before {
                 content: '';

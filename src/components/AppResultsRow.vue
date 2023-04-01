@@ -18,18 +18,20 @@ export default {
     // DICHIARO QUALI SARANNO I DATI DI CUI HO BISOGNO 
     props: {
         titleList: String,
-        reference: Object,
-        list: Array
+        references: Object,
+        list: Array,
+        loading: Boolean,
+        initialStatus: Boolean
     },
     methods: {
         triggerMenu() {
-            console.log(this.openMenu)
             this.openMenu = !this.openMenu
         }
     },
     computed: {
         // MOSTRO IN ORDINE DI POPOLARITA'
         orderList() {
+            this.openMenu = false;
             return this.list.sort((a, b) => {
                 if (a.popularity > b.popularity) return -1;
                 if (a.popularity < b.popularity) return 1;
@@ -42,27 +44,34 @@ export default {
 
 <!-- HTML -->
 <template>
-    <!-- <section class="loadingSection open">
-            <div class="title loadCard">
-                <div class="shimmerBG title-line"></div>
-            </div>
+    <section v-show="loading" class="loadingSection">
+        <div class="title loadCard">
+            <div class="shimmerBG title-line"></div>
+        </div>
 
-            <ul class="list">
-                <li class="loadCard" v-for="element in 4">
-                    <div class="shimmerBG media"></div>
-                </li>
-            </ul>
-        </section> -->
-    <section v-if="list.length != 0" :class="{ 'open': openMenu }">
+        <ul class="list">
+            <li class="loadCard" v-for="element in 4">
+                <div class="shimmerBG media"></div>
+            </li>
+        </ul>
+    </section>
+
+    <section v-show="list.length === 0 && initialStatus === false">
+        <div>
+            <h2 class="title">{{ titleList }} not found</h2>
+        </div>
+    </section>
+
+    <section v-show="list.length != 0 && loading === false" :class="{ 'open': openMenu }">
         <h2 class="title" @click="triggerMenu">{{ titleList }} <font-awesome-icon icon="fa-solid fa-angle-down" />
         </h2>
         <ul class="list">
             <!-- CREO TANTI LIST ITEM QUANTI SONO GLI ELEMENTI NELL'ARRAY DEI FILM  -->
             <li v-for="element in orderList">
                 <!-- PASSO LE PROPS AD OGNI CARD  -->
-                <AppCard :title="element[reference.title]" :lenguage="element[reference.language]"
-                    :valutation="element[reference.vote]" :imagePath="element[reference.posterUrl]"
-                    :coverPath="element[reference.coverUrl]" :description="element[reference.description]" />
+                <AppCard :title="element[references.title]" :lenguage="element[references.language]"
+                    :valutation="element[references.vote]" :imagePath="element[references.posterUrl]"
+                    :coverPath="element[references.coverUrl]" :description="element[references.description]" />
             </li>
         </ul>
     </section>
@@ -82,6 +91,7 @@ section {
     position: relative;
     overflow: hidden;
 
+
     &::after {
         content: '';
         position: absolute;
@@ -92,6 +102,7 @@ section {
         right: 0;
         top: 0;
     }
+
 
 
     .title {
@@ -202,5 +213,6 @@ section.open {
         border-radius: 20px;
 
     }
+
 }
 </style>

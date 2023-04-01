@@ -22,8 +22,9 @@ export default {
 <!-- HTML -->
 <template>
     <div class="resultsCard">
-        <AppResultsRow class="Resultrow" v-for="category in store.categories" :titleList="category.categoryName"
-            :reference="category.reference" :list="category.list" />
+        <AppResultsRow v-for="category in store.categories" :titleList="category.categoryName"
+            :references="category.reference" :list="category.list" :loading="category.loading"
+            :initialStatus="store.initialStatus" />
     </div>
 </template>
 
@@ -35,11 +36,6 @@ export default {
     margin-top: 100px;
     transform: translateY(100vh);
     background-color: $my-dark;
-
-    .Resultrow {
-        padding-bottom: 30px;
-        margin-bottom: 30px;
-    }
 }
 </style>
 

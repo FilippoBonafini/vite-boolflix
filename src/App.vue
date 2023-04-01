@@ -35,6 +35,7 @@ export default {
         .then((response) => {
           const categoriesIndex = this.store.categories.findIndex((element) => element.api === response.config.url);
           this.store.categories[categoriesIndex].list = response.data.results
+          this.store.categories[categoriesIndex].loading = true
         })
         .catch((error) => {
           console.log(error)
@@ -42,12 +43,20 @@ export default {
     },
 
     generalCall() {
+      this.store.initialStatus = false;
       const promisesList = this.store.categories.map(element => {
         return this.axiosCall(element.api)
       });
       Promise.all(promisesList).then(() => {
-        console.log('dom aggiornato')
-        this.scroll()
+        setTimeout(() => {
+          this.scroll();
+        }, 1)
+
+        setTimeout(() => {
+          this.store.categories.forEach(element => {
+            element.loading = false
+          });
+        }, 1300);
       });
     },
 

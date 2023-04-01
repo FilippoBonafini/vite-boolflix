@@ -1,6 +1,9 @@
 import { reactive } from "vue";
 
 export const store = reactive({
+
+    initialStatus: true,
+
     apiKey: '47ff9260259d0b312d6ffdda6a3c8e73',
 
     // BISOGNO AGGIUNGERE LA PARTE FINALE PER OTTENERE L'IMG 
@@ -19,7 +22,7 @@ export const store = reactive({
             categoryName: 'Film',
             api: 'https://api.themoviedb.org/3/search/movie',
             list: [],
-            openMenu: false,
+            loading: null,
             reference: {
                 title: 'title',
                 language: 'original_language',
@@ -39,7 +42,7 @@ export const store = reactive({
             categoryName: 'Tv Series',
             api: 'https://api.themoviedb.org/3/search/tv',
             list: [],
-            openMenu: false,
+            loading: null,
             reference: {
                 title: 'name',
                 originalTitle: 'original_name',
