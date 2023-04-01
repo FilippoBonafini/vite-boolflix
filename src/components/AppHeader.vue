@@ -22,6 +22,9 @@ export default {
         },
         start() {
             this.$emit('search')
+        },
+        returnTop(){
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 }
@@ -30,7 +33,7 @@ export default {
 <!-- HTML -->
 <template>
     <header class="searchbar" :class="{ 'searchbar--small': isSmall }">
-        <div class="title">
+        <div class="title" @click="returnTop()">
             <h1>
                 <span class="b">B</span>
                 <span class="oolflix">OOLFLI</span>

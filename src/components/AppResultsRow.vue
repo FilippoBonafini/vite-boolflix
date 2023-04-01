@@ -20,8 +20,7 @@ export default {
         titleList: String,
         references: Object,
         list: Array,
-        loading: Boolean,
-        initialStatus: Boolean
+        loading: Boolean
     },
     methods: {
         triggerMenu() {
@@ -54,12 +53,6 @@ export default {
                 <div class="shimmerBG media"></div>
             </li>
         </ul>
-    </section>
-
-    <section v-show="list.length === 0 && initialStatus === false">
-        <div>
-            <h2 class="title">{{ titleList }} not found</h2>
-        </div>
     </section>
 
     <section v-show="list.length != 0 && loading === false" :class="{ 'open': openMenu }">

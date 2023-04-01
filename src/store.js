@@ -2,8 +2,6 @@ import { reactive } from "vue";
 
 export const store = reactive({
 
-    initialStatus: true,
-
     apiKey: '47ff9260259d0b312d6ffdda6a3c8e73',
 
     // BISOGNO AGGIUNGERE LA PARTE FINALE PER OTTENERE L'IMG 
