@@ -23,7 +23,7 @@ export default {
         start() {
             this.$emit('search')
         },
-        returnTop(){
+        returnTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
@@ -73,6 +73,10 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         h1 {
             display: flex;

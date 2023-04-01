@@ -49,8 +49,8 @@ export default {
 
             <div class="footer">
                 <!-- <div class="lang">
-                    <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
-                </div> -->
+                                                                                        <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
+                                                                                    </div> -->
                 <div class="vote">
                     <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
                     <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
@@ -59,9 +59,7 @@ export default {
                     <font-awesome-icon icon="fa-solid fa-angle-right" />
                 </div>
             </div>
-
         </div>
-
     </div>
 </template>
 
