@@ -8,7 +8,8 @@ export default {
         return {
             store,
             isSmall: false,
-            langMenu: false
+            langMenu: false,
+            init: true
         }
     },
     mounted() {
@@ -23,6 +24,12 @@ export default {
         },
         start() {
             this.$emit('search')
+            this.init = false
+        },
+        langStart() {
+            if (this.init === false) {
+                this.start()
+            }
         },
         returnTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -75,7 +82,7 @@ export default {
                 <font-awesome-icon icon="fa-solid fa-angle-down" />
             </div>
             <div class="options">
-                <div v-for="lang in store.languages" @click="selectLang(lang)">
+                <div v-for="lang in store.languages" @click="selectLang(lang)" @click.prevent="langStart()">
                     <img class="language" :class="selectedLang(lang)"
                         :src="'https://unpkg.com/language-icons/icons/' + lang + '.svg'" :alt="lang">
                 </div>
@@ -251,6 +258,10 @@ export default {
                 width: 30px;
                 border-radius: 50%;
             }
+
+            .fa-angle-down {
+                transition: transform 0.2s;
+            }
         }
     }
 
@@ -258,9 +269,16 @@ export default {
         .options {
             height: auto;
         }
-    }
 
+        .fa-angle-down {
+            transition-duration: 0.3s;
+            transform: rotate(180deg);
+        }
+    }
 }
+
+
+
 
 
 
@@ -323,7 +341,7 @@ export default {
 
     .lang.opened {
         position: relative;
-        top: 290px;
+        top: 300px;
         right: 0;
         padding: 0 30px;
     }

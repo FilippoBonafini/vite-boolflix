@@ -63,9 +63,9 @@ export default {
     // SCROLLA LA PAGINA DELLA SUA ALTEZZA 
     scroll() {
 
-      if (window.scrollY === 0) {
+      if (window.scrollY < window.innerHeight - 300) {
         console.log('scrol')
-        window.scrollBy({ top: window.innerHeight - 50, behavior: "smooth" })
+        window.scrollBy({ top: window.innerHeight - window.scrollY - 50, behavior: "smooth" })
         // this.$refs.main.scrollIntoView({ behavior: 'smooth' });
       }
     }
