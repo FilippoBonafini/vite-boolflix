@@ -7,7 +7,8 @@ export default {
     data() {
         return {
             store,
-            isSmall: false
+            isSmall: false,
+            langMenu: false
         }
     },
     mounted() {
@@ -25,7 +26,25 @@ export default {
         },
         returnTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        selectLang(lang) {
+            this.store.language = lang
+            this.langMenu = false
+        },
+        selectedLang(lang) {
+            if (this.store.language === lang) {
+                return ('selected')
+            }
+        },
+        openMenu() {
+            this.langMenu = !this.langMenu
+        },
+        menuClass() {
+            if (this.langMenu) {
+                return ('opened')
+            }
         }
+
     }
 }
 </script>
@@ -47,6 +66,21 @@ export default {
                 <font-awesome-icon icon="fa-solid fa-search" />
             </button>
         </form>
+
+        <div class="lang" :class="menuClass()">
+            <div class="selectLanguage" @click="openMenu()">
+                <img class="iconLang" :class="selectedLang(lang)"
+                    :src="'https://unpkg.com/language-icons/icons/' + store.language + '.svg'" :alt="lang">
+                <font-awesome-icon icon="fa-solid fa-earth-europe" />
+                <font-awesome-icon icon="fa-solid fa-angle-down" />
+            </div>
+            <div class="options">
+                <div v-for="lang in store.languages" @click="selectLang(lang)">
+                    <img class="language" :class="selectedLang(lang)"
+                        :src="'https://unpkg.com/language-icons/icons/' + lang + '.svg'" :alt="lang">
+                </div>
+            </div>
+        </div>
     </header>
 </template>
 
@@ -174,6 +208,58 @@ export default {
         }
     }
 
+    .lang {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .options {
+            overflow: hidden;
+            height: 0;
+
+            .language {
+                width: 70px;
+                border-radius: 19px;
+                margin: 10px 20px;
+
+                &.selected {
+                    box-shadow: 0px 0px 16px -4px #ffffff;
+                }
+            }
+        }
+
+        .selectLanguage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 40px;
+            position: relative;
+
+            .iconLang {
+                position: absolute;
+                top: -15px;
+                left: -15px;
+                width: 30px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .lang.opened {
+        .options {
+            height: auto;
+        }
+    }
+
 }
 
 
@@ -189,7 +275,6 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-grow: 1;
 
         h1 {
             display: flex;
@@ -211,7 +296,6 @@ export default {
     form {
         position: relative;
         display: flex;
-        flex-grow: 1;
         margin: 0 50px;
 
         input {
@@ -235,6 +319,20 @@ export default {
             font-size: 20px;
         }
 
+    }
+
+    .lang.opened {
+        position: relative;
+        top: 290px;
+        right: 0;
+        padding: 0 30px;
+    }
+
+    .lang {
+        position: relative;
+        top: 10px;
+        right: 0;
+        padding: 0 30px;
     }
 }
 </style>
