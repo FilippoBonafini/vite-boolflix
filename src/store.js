@@ -29,6 +29,8 @@ export const store = reactive({
             api: 'https://api.themoviedb.org/3/search/movie',
             list: [],
             loading: null,
+            generApi: 'https://api.themoviedb.org/3/genre/movie/list',
+            gener: [],
             reference: {
                 title: 'title',
                 language: 'original_language',
@@ -49,6 +51,8 @@ export const store = reactive({
             api: 'https://api.themoviedb.org/3/search/tv',
             list: [],
             loading: null,
+            generApi: 'https://api.themoviedb.org/3/genre/tv/list',
+            gener: [],
             reference: {
                 title: 'name',
                 originalTitle: 'original_name',

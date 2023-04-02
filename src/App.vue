@@ -23,6 +23,9 @@ export default {
       store
     }
   },
+  mounted() {
+    this.generCall()
+  },
   methods: {
     axiosCall(api) {
       axios.get(api, {
@@ -60,11 +63,27 @@ export default {
       });
     },
 
+
+    generCall() {
+      // POPOLO LE LISTE DEI GENERI 
+      this.store.categories.forEach(element => {
+        axios.get(element.generApi, {
+          params: {
+            api_key: this.store.apiKey,
+            language: this.store.language
+          }
+        })
+          .then((response) => {
+            element.gener = response.data.genres
+          })
+      })
+    },
+
+
     // SCROLLA LA PAGINA DELLA SUA ALTEZZA 
     scroll() {
 
       if (window.scrollY < window.innerHeight - 300) {
-        console.log('scrol')
         window.scrollBy({ top: window.innerHeight - window.scrollY - 50, behavior: "smooth" })
         // this.$refs.main.scrollIntoView({ behavior: 'smooth' });
       }
@@ -75,7 +94,7 @@ export default {
 
 <!-- HTML -->
 <template>
-  <AppHeader @search="generalCall()" />
+  <AppHeader @search="generalCall()" @changeLang="generCall()" />
   <AppMain ref="main" />
 </template>
 

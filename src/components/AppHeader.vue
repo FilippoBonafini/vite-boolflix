@@ -29,6 +29,7 @@ export default {
         langStart() {
             if (this.init === false) {
                 this.start()
+                this.$emit('changeLang')
             }
         },
         returnTop() {

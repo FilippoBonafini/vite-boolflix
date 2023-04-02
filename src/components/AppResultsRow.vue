@@ -20,11 +20,15 @@ export default {
         titleList: String,
         references: Object,
         list: Array,
-        loading: Boolean
+        loading: Boolean,
+        category: Object
     },
     methods: {
         triggerMenu() {
             this.openMenu = !this.openMenu
+        },
+        findGener(element) {
+            return (this.category.gener.findIndex(gen => gen.id === element.genre_ids[0]))
         }
     },
     computed: {
@@ -64,7 +68,8 @@ export default {
                 <!-- PASSO LE PROPS AD OGNI CARD  -->
                 <AppCard :title="element[references.title]" :lenguage="element[references.language]"
                     :valutation="element[references.vote]" :imagePath="element[references.posterUrl]"
-                    :coverPath="element[references.coverUrl]" :description="element[references.description]" />
+                    :coverPath="element[references.coverUrl]" :description="element[references.description]"
+                    :gener="category.gener[findGener(element)].name" />
             </li>
         </ul>
     </section>

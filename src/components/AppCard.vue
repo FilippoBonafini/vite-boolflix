@@ -19,7 +19,8 @@ export default {
         imagePath: String,
         coverPath: String,
         description: String,
-        menuStatus: Boolean
+        menuStatus: Boolean,
+        gener: String
     },
     methods: {
         // VERIFICO QUANTE STELLE INSERIRE 
@@ -49,12 +50,16 @@ export default {
 
             <div class="footer">
                 <!-- <div class="lang">
-                <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
-            </div> -->
-                <div class="vote">
-                    <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
-                    <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
+                                                        <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
+                                                    </div> -->
+                <div class="left">
+                    <div class="gener">{{ gener }}</div>
+                    <div class="vote">
+                        <font-awesome-icon icon="fa-solid fa-star" v-for="n in stars(valutation)" />
+                        <font-awesome-icon icon="fa-regular fa-star" v-for="n in (5 - stars(valutation))" />
+                    </div>
                 </div>
+
                 <div class="button-more">
                     <font-awesome-icon icon="fa-solid fa-angle-right" />
                 </div>
@@ -148,6 +153,12 @@ export default {
             align-items: center;
             padding: 30px;
             position: relative;
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
 
             .button-more {
                 font-size: 30px;
