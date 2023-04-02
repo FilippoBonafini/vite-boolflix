@@ -76,8 +76,7 @@ export default {
 
         <div class="lang" :class="menuClass()">
             <div class="selectLanguage" @click="openMenu()">
-                <img class="iconLang" :class="selectedLang(lang)"
-                    :src="'https://unpkg.com/language-icons/icons/' + store.language + '.svg'" :alt="lang">
+                <img class="iconLang" :src="'https://unpkg.com/language-icons/icons/' + store.language + '.svg'">
                 <font-awesome-icon icon="fa-solid fa-earth-europe" />
                 <font-awesome-icon icon="fa-solid fa-angle-down" />
             </div>
@@ -266,8 +265,11 @@ export default {
     }
 
     .lang.opened {
+
+
         .options {
             height: auto;
+            z-index: 99999;
         }
 
         .fa-angle-down {
@@ -351,6 +353,7 @@ export default {
         top: 10px;
         right: 0;
         padding: 0 30px;
+        z-index: 99999;
     }
 }
 </style>

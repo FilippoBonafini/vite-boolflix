@@ -23,7 +23,7 @@ export default {
 <template>
     <div class="resultsCard">
         <AppResultsRow v-for="category in store.categories" :titleList="category.categoryName"
-            :references="category.reference" :list="category.list" :loading="category.loading"/>
+            :references="category.reference" :list="category.list" :loading="category.loading" />
     </div>
 </template>
 
@@ -34,7 +34,6 @@ export default {
 .resultsCard {
     margin-top: 100px;
     transform: translateY(100vh);
-    background-color: $my-dark;
 }
 </style>
 
