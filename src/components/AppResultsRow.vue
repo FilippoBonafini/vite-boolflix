@@ -28,7 +28,11 @@ export default {
             this.openMenu = !this.openMenu
         },
         findGener(element) {
-            return (this.category.gener.findIndex(gen => gen.id === element.genre_ids[0]))
+            if (element.genre_ids.length > 0) {
+                const id = (this.category.gener.findIndex(gen => gen.id === element.genre_ids[0]))
+                return (this.category.gener[id].name)
+            }
+
         }
     },
     computed: {
@@ -69,7 +73,7 @@ export default {
                 <AppCard :title="element[references.title]" :lenguage="element[references.language]"
                     :valutation="element[references.vote]" :imagePath="element[references.posterUrl]"
                     :coverPath="element[references.coverUrl]" :description="element[references.description]"
-                    :gener="category.gener[findGener(element)].name" />
+                    :gener="findGener(element)" />
             </li>
         </ul>
     </section>

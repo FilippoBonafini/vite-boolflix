@@ -26,6 +26,10 @@ export default {
         // VERIFICO QUANTE STELLE INSERIRE 
         stars(valutation) {
             return (Number((valutation / 2).toFixed()))
+        },
+        openMenu() {
+            this.store.moreInfoMenu = true
+
         }
 
     }
@@ -50,8 +54,8 @@ export default {
 
             <div class="footer">
                 <!-- <div class="lang">
-                                                        <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
-                                                    </div> -->
+                                                                    <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
+                                                                </div> -->
                 <div class="left">
                     <div class="gener">{{ gener }}</div>
                     <div class="vote">
@@ -60,7 +64,7 @@ export default {
                     </div>
                 </div>
 
-                <div class="button-more">
+                <div class="button-more" @click="openMenu()">
                     <font-awesome-icon icon="fa-solid fa-angle-right" />
                 </div>
             </div>

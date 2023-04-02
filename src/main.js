@@ -16,8 +16,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faEarthEurope } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 /* add icons to the library */
-library.add(faStar, faStarFUll, faSearch, faAngleDown, faAngleRight, faEarthEurope)
+library.add(faStar, faStarFUll, faSearch, faAngleDown, faAngleRight, faEarthEurope, faXmark)
 
 import App from './App.vue'
 

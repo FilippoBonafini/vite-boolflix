@@ -50,7 +50,7 @@ export default {
     },
 
     generalCall() {
-
+      this.store.moreInfoMenu = false
       const promisesList = this.store.categories.map(element => {
         return this.axiosCall(element.api)
       });
@@ -65,6 +65,7 @@ export default {
 
 
     generCall() {
+      this.store.moreInfoMenu = false
       // POPOLO LE LISTE DEI GENERI 
       this.store.categories.forEach(element => {
         axios.get(element.generApi, {
@@ -77,6 +78,7 @@ export default {
             element.gener = response.data.genres
           })
       })
+
     },
 
 

@@ -2,13 +2,20 @@
 <script>
 // IMPORTIAMO I COMPONENTI 
 import AppResultsCards from './AppResultsCards.vue';
+import AppMovieInfo from './AppMovieInfo.vue';
+import { store } from '../store';
 
 export default {
     name: 'AppMain',
+    data() {
+        return {
+            store
+        }
+    },
     // DICHIARIAMO I COMPONENTI 
     components: {
         AppResultsCards,
-
+        AppMovieInfo
     }
 }
 </script>
@@ -17,6 +24,7 @@ export default {
 <template>
     <main>
         <AppResultsCards />
+        <AppMovieInfo v-if="store.moreInfoMenu" />
     </main>
 </template>
 
