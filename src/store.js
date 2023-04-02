@@ -13,7 +13,18 @@ export const store = reactive({
     language: 'it',
 
     moreInfoMenu: false,
-
+    moreInfoID: {
+        id: null,
+        title: null,
+        originalTitle: null,
+        description: null,
+        lang: null,
+        duration: null,
+        actorslist: [],
+        img: null,
+        vote: null,
+        gen: null
+    },
     languages: [
         'it',
         'en',
@@ -39,9 +50,7 @@ export const store = reactive({
                 description: 'overview',
                 vote: 'vote_average',
                 coverUrl: 'backdrop_path',
-                posterUrl: 'poster_path'
-            },
-            moreReference: {
+                posterUrl: 'poster_path',
                 originalTitle: 'original_title',
                 popularity: 'popularity',
                 data: 'release_date',
@@ -64,13 +73,13 @@ export const store = reactive({
                 vote: 'vote_average',
                 data: 'release_date',
                 coverUrl: 'backdrop_path',
-                posterUrl: 'poster_path'
-            },
-            moreReference: {
+                posterUrl: 'poster_path',
                 originalTitle: 'original_name',
                 popularity: 'popularity',
                 data: 'release_date',
-            }
+
+            },
+
         }
 
     ],

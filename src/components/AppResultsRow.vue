@@ -2,12 +2,13 @@
 <script>
 // IMPORTIAMO I COMPONENTI 
 import AppCard from './AppCard.vue';
-
+import { store } from '../store';
 
 export default {
     name: 'AppResultsCards',
     data() {
         return {
+            store,
             openMenu: false
         }
     },
@@ -33,6 +34,16 @@ export default {
                 return (this.category.gener[id].name)
             }
 
+        },
+        moreInfo(element) {
+            this.store.moreInfoID.title = element[this.references.title]
+            this.store.moreInfoID.originalTitle = element[this.references.originalTitle]
+            this.store.moreInfoID.description = element[this.references.description]
+            this.store.moreInfoID.lang = element[this.references.language]
+            this.store.moreInfoID.id = element.id
+            this.store.moreInfoID.img = element[this.references.posterUrl]
+            this.store.moreInfoID.gen = this.findGener(element)
+            this.store.moreInfoID.vote = element[this.references.vote]
         }
     },
     computed: {
@@ -73,7 +84,7 @@ export default {
                 <AppCard :title="element[references.title]" :lenguage="element[references.language]"
                     :valutation="element[references.vote]" :imagePath="element[references.posterUrl]"
                     :coverPath="element[references.coverUrl]" :description="element[references.description]"
-                    :gener="findGener(element)" />
+                    :gener="findGener(element)" @moreInfo="moreInfo(element)" />
             </li>
         </ul>
     </section>

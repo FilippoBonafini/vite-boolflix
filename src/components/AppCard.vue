@@ -2,12 +2,13 @@
 <script>
 
 import { store } from '../store';
-
+import AppMovieInfo from './AppMovieInfo.vue';
 export default {
     name: "AppCard",
     data() {
         return {
-            store
+            store,
+            AppMovieInfo
         };
     },
     // DICHIARO QUALI SARANNO I DATI DI CUI HO BISOGNO 
@@ -29,7 +30,7 @@ export default {
         },
         openMenu() {
             this.store.moreInfoMenu = true
-
+            this.$emit('moreInfo')
         }
 
     }
@@ -53,9 +54,6 @@ export default {
             <p class="text">{{ description }}</p>
 
             <div class="footer">
-                <!-- <div class="lang">
-                                                                    <img :src="'https://unpkg.com/language-icons/icons/' + lenguage + '.svg'" :alt="lenguage">
-                                                                </div> -->
                 <div class="left">
                     <div class="gener">{{ gener }}</div>
                     <div class="vote">
