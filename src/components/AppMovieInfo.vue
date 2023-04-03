@@ -11,17 +11,17 @@ export default {
             opened: true
         };
     },
-    // DICHIARO QUALI SARANNO I DATI DI CUI HO BISOGNO 
-    props: {
-
+    computed: {
+        // CROCETTA DI CHIUSUSRA 
+        close() {
+            this.store.moreInfoMenu = false;
+        }
     },
     methods: {
-        close() {
-            this.store.moreInfoMenu = false
-        },        // VERIFICO QUANTE STELLE INSERIRE 
+        // VERIFICO QUANTE STELLE INSERIRE 
         stars(valutation) {
-            return (Number((valutation / 2).toFixed()))
-        },
+            return (Number((valutation / 2).toFixed()));
+        }
     }
 }
 </script>
@@ -74,7 +74,7 @@ export default {
                     <li>actor</li>
                 </ul>
             </div>
-            <div class="close" @click="close()">
+            <div class="close" @click="close">
                 <font-awesome-icon :icon="['fas', 'xmark']" />
             </div>
         </div>

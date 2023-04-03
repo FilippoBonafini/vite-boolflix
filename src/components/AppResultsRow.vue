@@ -25,25 +25,28 @@ export default {
         category: Object
     },
     methods: {
+        // ALLARGO E STRINGO LA VISUAL DEI RISULTATI 
         triggerMenu() {
-            this.openMenu = !this.openMenu
+            this.openMenu = !this.openMenu;
         },
+        // CONFRONTA 2 ARRAY E TROVA IL GENERE DEL FILM 
         findGener(element) {
             if (element.genre_ids.length > 0) {
-                const id = (this.category.gener.findIndex(gen => gen.id === element.genre_ids[0]))
-                return (this.category.gener[id].name)
+                const id = (this.category.gener.findIndex(gen => gen.id === element.genre_ids[0]));
+                return (this.category.gener[id].name);
             }
 
         },
+        // SALVA LE INFORMAZIONI DI UNA SERIE/FILM IN UN OGGETTO NEL MIO STORE 
         moreInfo(element) {
-            this.store.moreInfoID.title = element[this.references.title]
-            this.store.moreInfoID.originalTitle = element[this.references.originalTitle]
-            this.store.moreInfoID.description = element[this.references.description]
-            this.store.moreInfoID.lang = element[this.references.language]
-            this.store.moreInfoID.id = element.id
-            this.store.moreInfoID.img = element[this.references.posterUrl]
-            this.store.moreInfoID.gen = this.findGener(element)
-            this.store.moreInfoID.vote = element[this.references.vote]
+            this.store.moreInfoID.title = element[this.references.title];
+            this.store.moreInfoID.originalTitle = element[this.references.originalTitle];
+            this.store.moreInfoID.description = element[this.references.description];
+            this.store.moreInfoID.lang = element[this.references.language];
+            this.store.moreInfoID.id = element.id;
+            this.store.moreInfoID.img = element[this.references.posterUrl];
+            this.store.moreInfoID.gen = this.findGener(element);
+            this.store.moreInfoID.vote = element[this.references.vote];
         }
     },
     computed: {

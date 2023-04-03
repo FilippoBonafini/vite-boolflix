@@ -13,44 +13,44 @@ export default {
         }
     },
     mounted() {
-        window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('scroll', this.handleScroll);
     },
     destroyed() {
-        window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
         handleScroll() {
-            this.isSmall = window.scrollY > window.innerHeight - 300
+            this.isSmall = window.scrollY > window.innerHeight - 300;
         },
         start() {
-            this.$emit('search')
-            this.init = false
+            this.$emit('search');
+            this.init = false;
         },
         langStart() {
             if (this.init === false) {
-                this.start()
-                this.$emit('changeLang')
-            }
+                this.start();
+                this.$emit('changeLang');
+            };
         },
         returnTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
         selectLang(lang) {
-            this.store.language = lang
-            this.langMenu = false
+            this.store.language = lang;
+            this.langMenu = false;
         },
         selectedLang(lang) {
             if (this.store.language === lang) {
-                return ('selected')
-            }
+                return ('selected');
+            };
         },
         openMenu() {
-            this.langMenu = !this.langMenu
+            this.langMenu = !this.langMenu;
         },
         menuClass() {
             if (this.langMenu) {
-                return ('opened')
-            }
+                return ('opened');
+            };
         }
 
     }

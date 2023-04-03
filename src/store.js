@@ -10,7 +10,7 @@ export const store = reactive({
     linkImgBig: 'http://image.tmdb.org/t/p/w1000',
 
     searchKey: null,
-    language: 'it',
+    language: null,
 
     moreInfoMenu: false,
     moreInfoID: {

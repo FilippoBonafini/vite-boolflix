@@ -23,10 +23,15 @@ export default {
       store
     }
   },
+  // ALL'AVVIO DELL'APP 
   mounted() {
-    this.generCall()
+    // IMPOSTA COME LINGUA QUELLA DEL BROWSER 
+    this.store.language = navigator.language;
+    // POPOLA GLI ARRAY DEI GENERI 
+    this.generCall();
   },
   methods: {
+    // CHIAMATA AXIOS PER POPOLARE LE LISTE DEI MOVIES
     axiosCall(api) {
       axios.get(api, {
         params: {
@@ -37,33 +42,33 @@ export default {
       })
         .then((response) => {
           const categoriesIndex = this.store.categories.findIndex((element) => element.api === response.config.url);
-          this.store.categories[categoriesIndex].list = response.data.results
+          this.store.categories[categoriesIndex].list = response.data.results;
           setTimeout(() => {
             this.scroll();
           }, 50)
 
-          this.store.categories[categoriesIndex].loading = true
+          this.store.categories[categoriesIndex].loading = true;
         })
         .catch((error) => {
-          console.log(error)
+          console.log(error);
         })
     },
-
+    // EFFETTUA TANTE CHIAMATAE QUANTE SONO LE VARIE CATEGORIE 
     generalCall() {
-      this.store.moreInfoMenu = false
+      this.store.moreInfoMenu = false;
       const promisesList = this.store.categories.map(element => {
-        return this.axiosCall(element.api)
+        return this.axiosCall(element.api);
       });
       Promise.all(promisesList).then(() => {
         setTimeout(() => {
           this.store.categories.forEach(element => {
-            element.loading = false
+            element.loading = false;
           });
         }, 1300);
       });
     },
 
-
+    // EFFETTUO LE CHIAMATE PER POPOLARE GLI ARRAY DEI GENERI 
     generCall() {
       this.store.moreInfoMenu = false
       // POPOLO LE LISTE DEI GENERI 

@@ -1,14 +1,13 @@
 <!-- JAVA SCRIPT  -->
 <script>
-
+// IMPORTIAMO LO STORE E I COMPONENTI 
 import { store } from '../store';
-import AppMovieInfo from './AppMovieInfo.vue';
+
 export default {
     name: "AppCard",
     data() {
         return {
-            store,
-            AppMovieInfo
+            store
         };
     },
     // DICHIARO QUALI SARANNO I DATI DI CUI HO BISOGNO 
@@ -26,11 +25,11 @@ export default {
     methods: {
         // VERIFICO QUANTE STELLE INSERIRE 
         stars(valutation) {
-            return (Number((valutation / 2).toFixed()))
+            return (Number((valutation / 2).toFixed()));
         },
         openMenu() {
-            this.store.moreInfoMenu = true
-            this.$emit('moreInfo')
+            this.store.moreInfoMenu = true;
+            this.$emit('moreInfo');
         }
 
     }
